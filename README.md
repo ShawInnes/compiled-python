@@ -18,6 +18,13 @@ pip install -r requirements.txt
 python setup.py build_ext --inplace
 ```
 
+### Confirming the binary is built
+
+As you can see, the binary is compiled as a shared object fil, the following screenshot shows a hex dump of this file.
+Although it would be possible to reverse engineer this file, the effort required to do so would be considerable.
+
+![XXD hexdump of the compiled library](binary-xxd.png)
+
 ### Running the local binary with gunicorn
 
 ```
@@ -31,13 +38,13 @@ gunicorn api:app
 ```
 docker buildx build --platform linux/arm64 --load --tag helloflask .
 
-docker buildx build --platform linux/amd64 --load --tag helloflask . 
+docker buildx build --platform linux/amd64 --load --tag helloflask .
 ```
 
 ### Build multi-arch image
 
 ```
-docker buildx build --platform linux/arm64,linux/amd64 --tag helloflask . 
+docker buildx build --platform linux/arm64,linux/amd64 --tag helloflask .
 ```
 
 ## Running the image
