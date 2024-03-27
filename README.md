@@ -23,7 +23,7 @@ python setup.py build_ext --inplace
 As you can see, the binary is compiled as a shared object fil, the following screenshot shows a hex dump of this file.
 Although it would be possible to reverse engineer this file, the effort required to do so would be considerable.
 
-![XXD hexdump of the compiled library](binary-xxd.png)
+![XXD hexdump of the compiled library](images/binary-xxd.png)
 
 ### Running the local binary with gunicorn
 
@@ -53,7 +53,7 @@ docker buildx build --platform linux/arm64,linux/amd64 --tag helloflask .
 docker run -p 80:80 -it helloflask
 ```
 
-![Running the built docker image](docker-run.png)
+![Running the built docker image](images/docker-run.png)
 
 ## Confirming the binary is in the image
 
