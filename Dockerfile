@@ -11,14 +11,14 @@ COPY . .
 RUN pip install -r requirements.txt
 
 # Compile Cython code
-RUN python setup.py build_ext
+RUN python setup.py build_ext --build-lib out
 
 FROM python:3.12-slim as runtime
 
 WORKDIR /app
 
 COPY --from=build /app/requirements.txt .
-COPY --from=build /app/*.so .
+COPY --from=build /app/out/*.so .
 
 RUN pip install -r requirements.txt
 
